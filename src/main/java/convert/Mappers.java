@@ -1,5 +1,5 @@
 package convert;
 
-public interface MapperConvertReflect {
+public interface Mappers {
     <E> E mapper(Object entity,Class mapperClass);
 }

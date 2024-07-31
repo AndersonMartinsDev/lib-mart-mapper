@@ -10,10 +10,10 @@ import org.mockito.MockitoAnnotations;
 import java.time.LocalDate;
 import java.util.*;
 
-class MapperConvertReflectImplTest {
+class MappersImplTest {
 
     @InjectMocks
-    MapperConvertReflectImpl mapperConvertReflect;
+    MappersImpl mapperConvertReflect;
 
 
     @BeforeEach

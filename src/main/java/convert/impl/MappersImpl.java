@@ -1,10 +1,10 @@
 package convert.impl;
 
-import convert.MapperConvertReflect;
+import convert.Mappers;
 import org.springframework.stereotype.Component;
 
 @Component
-public class MapperConvertReflectImpl extends ParseToNewClass implements MapperConvertReflect {
+public class MappersImpl extends ParseToNewClass implements Mappers {
     @Override
     public <E> E mapper(Object old, Class clazz) {
         return mapperToNewClass(old,clazz);
