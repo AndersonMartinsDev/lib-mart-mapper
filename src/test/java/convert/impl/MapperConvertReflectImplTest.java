@@ -7,11 +7,8 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
-import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.*;
+import java.util.*;
 
 class MapperConvertReflectImplTest {
 
@@ -26,15 +23,69 @@ class MapperConvertReflectImplTest {
 
     @Test
     void whenEverythingIsOk(){
-        var a = ClassA
+        var classeA = ClassA
                 .builder()
                 .text("test text")
                 .date(LocalDate.now())
                 .number(2)
-                .listClassA(List.of(ClassA.builder().build(),ClassA.builder().build()))
+                .listClassA(
+                        List.of(
+                                ClassA
+                                        .builder()
+                                        .text("ista 1")
+                                        .build(),
+                                ClassA
+                                        .builder()
+                                        .text("lista2")
+                                        .number(2)
+                                        .build()))
                 .build();
 
-        ClassB entity = mapperConvertReflect.mapper(a, ClassB.class);
+        ClassB entity = mapperConvertReflect.mapper(classeA, ClassB.class);
+        System.out.println(entity);
+    }
+
+    @Test
+    void whenUsinMap(){
+        var classeA = ClassA
+                .builder()
+                .text("test text")
+                .date(LocalDate.now())
+                .number(2)
+                .listClassA(
+                        List.of(
+                                ClassA
+                                        .builder()
+                                        .text("ista 1")
+                                        .build(),
+                                ClassA
+                                        .builder()
+                                        .text("lista2")
+                                        .number(2)
+                                        .build()))
+                .map(Map.of("teste","teste","teste1","teste1"))
+                .build();
+
+        ClassB entity = mapperConvertReflect.mapper(classeA, ClassB.class);
+        System.out.println(entity);
+    }
+
+    @Test
+    void whenUsinSet(){
+        Set<String> set = new HashSet<>();
+        set.add("teste set 1 ");
+        set.add("teste set 2 ");
+        set.add("teste set 3 ");
+
+        var classeA = ClassA
+                .builder()
+                .text("test text")
+                .date(LocalDate.now())
+                .number(2)
+                .set(set)
+                .build();
+
+        ClassB entity = mapperConvertReflect.mapper(classeA, ClassB.class);
         System.out.println(entity);
     }
 
