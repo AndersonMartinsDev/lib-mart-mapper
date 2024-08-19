@@ -38,7 +38,7 @@ mvn install
 ```javascript
         ClasseA classeA = new ClasseA();
         
-        ClassB classeDTO = mapperConvertReflect.mapper(classeA, ClassB.class);
+        ClassB classeDTO = mappers.mapper(classeA, ClassB.class);
         
        classeDTO.atributo1 == classeA.atributo1(true)
 ```
