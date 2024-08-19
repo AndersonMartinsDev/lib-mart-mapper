@@ -13,7 +13,7 @@ import java.util.*;
 class MappersImplTest {
 
     @InjectMocks
-    MappersImpl mapperConvertReflect;
+    MappersImpl mappers;
 
 
     @BeforeEach
@@ -46,7 +46,7 @@ class MappersImplTest {
                                         .build()))
                 .build();
 
-        ClassB entity = mapperConvertReflect.mapper(classeA, ClassB.class);
+        ClassB entity = mappers.mapper(classeA, ClassB.class);
         System.out.println(entity);
     }
 
@@ -71,7 +71,7 @@ class MappersImplTest {
                 .map(Map.of("teste","teste","teste1","teste1"))
                 .build();
 
-        ClassB entity = mapperConvertReflect.mapper(classeA, ClassB.class);
+        ClassB entity = mappers.mapper(classeA, ClassB.class);
         System.out.println(entity);
     }
 
@@ -90,7 +90,7 @@ class MappersImplTest {
                 .set(set)
                 .build();
 
-        ClassB entity = mapperConvertReflect.mapper(classeA, ClassB.class);
+        ClassB entity = mappers.mapper(classeA, ClassB.class);
         System.out.println(entity);
     }
 
