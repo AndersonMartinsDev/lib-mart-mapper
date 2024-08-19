@@ -12,6 +12,8 @@ public class ClassB {
     private String text;
     private Integer number;
     private LocalDate date;
+
+    private ClassA classA;
     private List<ClassA> listClassA;
     private Map<String,Object> map;
     private Set<String> set;

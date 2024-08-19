@@ -28,6 +28,11 @@ class MappersImplTest {
                 .text("test text")
                 .date(LocalDate.now())
                 .number(2)
+                .classA(ClassA
+                        .builder()
+                        .text("teste de SubClasse")
+                        .date(LocalDate.now())
+                        .build())
                 .listClassA(
                         List.of(
                                 ClassA

@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>mart-mapper</groupId>
-    <artifactId>mart-mapper</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>mart-mapper</name>
+    <artifactId>dto-mapper</artifactId>
+    <version>0.0.1</version>
+    <name>mapper</name>
     <description></description>
     <properties>
         <java.version>11</java.version>
@@ -20,14 +20,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -54,13 +46,35 @@
         </dependency>
 
     </dependencies>
-
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <name>Package Mapper to Dto</name>
+            <url>https://maven.pkg.github.com/AndersonMartinsDev/lib-mart-mapper</url>
+        </repository>
+    </distributionManagement>
     <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+            </plugins>
+        </pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
                 <configuration>
+                    <skip>true</skip>
                     <excludes>
                         <exclude>
                             <groupId>org.projectlombok</groupId>
