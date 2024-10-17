@@ -7,6 +7,8 @@ import java.util.*;
 
 public abstract class ParseToNewClass {
 
+    //TODO: Resolver problema na biblioteca do mapper -> quando não possui o atributo na classe que receberá os valors eles dá uma excessão java.lang.NoSuchFieldException
+    //TODO: Ajustar testes unitários para que contemple cenários como o citado
     private <E> E setValue(Field field, Object old) {
         try {
             var value = getValueOld(field, old);
@@ -57,6 +59,9 @@ public abstract class ParseToNewClass {
 
 
     private <E> E getValueOld(Field field, Object oldValue) throws NoSuchFieldException, IllegalAccessException {
+        if(Arrays.stream(oldValue.getClass().getDeclaredFields()).filter(f-> f.getName().equalsIgnoreCase(field.getName())).count() == 0){
+            return null;
+        }
         var value = oldValue.getClass().getDeclaredField(field.getName());
         value.setAccessible(true);
         return (E) value.get(oldValue);
