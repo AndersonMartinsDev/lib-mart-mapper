@@ -15,6 +15,8 @@ import java.util.Set;
 @AllArgsConstructor
 @Builder
 public class ClassA {
+
+    private Long ides;
     private String text;
     private Integer number;
     private LocalDate date;

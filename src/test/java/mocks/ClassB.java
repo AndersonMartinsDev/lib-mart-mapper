@@ -9,6 +9,8 @@ import java.util.Set;
 
 @ToString
 public class ClassB {
+
+    private Integer id;
     private String text;
     private Integer number;
     private LocalDate date;
